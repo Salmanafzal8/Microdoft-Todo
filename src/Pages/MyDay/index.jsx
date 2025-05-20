@@ -8,7 +8,7 @@ import InputTodo from "../../Components/InputTodo";
 
 const Myday = () => {
   return (
-    <div className="bg-[#1c1c1c] w-[82%] pt-8 px-8 ">
+    <div className="bg-[#1c1c1c] min-w-[82%] pt-8 px-8 ">
       <div className="flex flex-row  align-center justify-between px-3">
         <div className="flex flex-col  ">
           <h1 className=" font-semibold text-[#d16460] text-[25px] ">My Day </h1>
