@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   <div className="min-w-[20%] h-[100vh] bg-[#212121] text-amber-50 flex flex-col justify-between items-start px-2 pt-3 pb-0">
   <div className="flex flex-col gap-2.5 w-full">
-    <div className="flex gap-2 justify-start items-start">
+    <div className="flex gap-2 justify-start">
       <div className="h-[45px] w-[45px] rounded-full bg-[#00aba9] text-center flex items-center justify-center">
         <h1 className="text-1xl">HA</h1>
       </div>
