@@ -73,7 +73,7 @@ useEffect(() => {
                     <IoSettingsOutline className="opacity-75" />
                     Settings
                   </li>
-                  <li className="hover:bg-[#3d3d3d]  text-[15px] py-3 px-4 border-b flex items-center gap-4 cursor-pointer">
+                  <li className="hover:bg-[#3d3d3d]  text-[15px] py-3 px-4 border-b  flex items-center gap-4 cursor-pointer">
                     <IoSyncSharp className="opacity-75" />
                     Sync
                   </li>
