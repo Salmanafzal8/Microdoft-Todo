@@ -1,8 +1,6 @@
-// src/Pages/Homepage/index.jsx
 import React from 'react';
 import Sidebar from '../../Layout/Sidebar';
-import Tasks from '../Tasks'; // This points to index.jsx in /Tasks
-
+import Tasks from '../Tasks'; 
 const Home = () => {
   return (
     <div className="flex flex-row">
