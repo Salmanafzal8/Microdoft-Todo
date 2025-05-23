@@ -4,6 +4,8 @@ import { SlBulb } from "react-icons/sl";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { SlCalender } from "react-icons/sl";
 import InputTodo from "../../Components/InputTodo";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Myday = () => {
