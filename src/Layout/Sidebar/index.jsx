@@ -1,4 +1,5 @@
 import React, { useState, useRef , useEffect } from "react";
+import { Link } from "react-router-dom";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
@@ -92,35 +93,49 @@ useEffect(() => {
             <LiaSearchSolid className="text-white text-base" />
           </div>
         </div>
-        <ul className="text-white flex flex-col items-start w-full">
-          <li className="w-full">
-            <button className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4">
-              <FiSun className="text-[17px] text-[#e46b67]" /> My Day
-            </button>
-          </li>
-          <li className="w-full">
-            <button className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4">
-              <MdStarOutline className="text-[20px] text-[#d39ea8]" /> Important
-            </button>
-          </li>
-          <li className="w-full">
-            <button className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4">
-              <MdInsertChartOutlined className="text-[20px] text-[#8bd3ce]" />{" "}
-              Planned
-            </button>
-          </li>
-          <li className="w-full">
-            <button className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4">
-              <CiUser className="text-[19px] text-[#6a8b7d]" />
-              Assigned to me
-            </button>
-          </li>
-          <li className="w-full">
-            <button className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4">
-              <GrHomeRounded className="text-[15px] text-[#5a6592]" /> Task
-            </button>
-          </li>
-        </ul>
+       <ul className="text-white flex flex-col items-start w-full">
+  <li className="w-full">
+    <Link
+      to="/myday"
+      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+    >
+      <FiSun className="text-[17px] text-[#e46b67]" /> My Day
+    </Link>
+  </li>
+  <li className="w-full">
+    <Link
+      to="/important"
+      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+    >
+      <MdStarOutline className="text-[20px] text-[#d39ea8]" /> Important
+    </Link>
+  </li>
+  <li className="w-full">
+    <Link
+      to="/planned"
+      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+    >
+      <MdInsertChartOutlined className="text-[20px] text-[#8bd3ce]" /> Planned
+    </Link>
+  </li>
+  <li className="w-full">
+    <Link
+      to="/assigned"
+      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+    >
+      <CiUser className="text-[19px] text-[#6a8b7d]" /> Assigned to me
+    </Link>
+  </li>
+  <li className="w-full">
+    <Link
+      to="/tasks"
+      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+    >
+      <GrHomeRounded className="text-[15px] text-[#5a6592]" /> Task
+    </Link>
+  </li>
+</ul>
+
       </div>
       <div className="flex gap-2 w-full">
         <button className="h-10 w-[80%] flex justify-start items-center gap-2 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-2">
