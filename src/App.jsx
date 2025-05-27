@@ -1,9 +1,7 @@
-// App.jsx
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Tasks from "./Pages/Tasks";
-import MyDay from "./Pages/MYDay";
-import MainLayout from "./Pages/Homepage";
+// src/App.jsx
+import './App.css';
+import Home from './Pages/Homepage'; // Folder with index.jsx
+
 function App() {
   return (
     <Routes>

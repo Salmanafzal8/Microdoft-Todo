@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { FaPlus, FaRegCircle } from "react-icons/fa6";
 import { MdOutlineCalendarMonth } from "react-icons/md";
@@ -6,12 +7,14 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   return (
     <div className="bg-[#292929] hover:bg-[#343435] py-1 flex flex-row rounded mt-[80px]">
+
       <button className="hover:bg-[#343435]">
         {isInputFocused ? (
           <FaRegCircle className="text-[#788cde] text-2xl mx-[12px]" />
         ) : (
           <FaPlus className="text-[#788cde] mx-[10px] " />
         )}
+
       </button>
 
       <input
@@ -37,6 +40,7 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
       ) : (
         <MdOutlineCalendarMonth className="text-[#ffffff] text-2xl mx-[10px] my-[10px] z-50" />
       )}
+
     </div>
   );
 };

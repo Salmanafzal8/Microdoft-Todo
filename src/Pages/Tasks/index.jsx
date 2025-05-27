@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { MdAddCard } from "react-icons/md";
 import { GrHomeRounded } from "react-icons/gr";
@@ -63,11 +64,7 @@ function Tasks() {
       Tasks show up here if they are not part <br /> of any list you have created
     </p>
   </div>
-)}
-
-
-
-      
+)
         <InputTodo
           className="placeholder-[#788cde]"
           inputText={inputText}
@@ -75,6 +72,7 @@ function Tasks() {
           add={add}
         />
    
+
     </div>
   );
 }
