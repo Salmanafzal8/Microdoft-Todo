@@ -31,7 +31,6 @@ const Myday = () => {
           that refreshes every day
         </p>
         </div>
-        
       </div>
       <InputTodo/>
     </div>

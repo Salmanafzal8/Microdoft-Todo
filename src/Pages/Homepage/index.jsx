@@ -1,15 +1,22 @@
-// src/Pages/Homepage/index.jsx
-import React from 'react';
-import Sidebar from '../../Layout/Sidebar';
-import Tasks from '../Tasks'; // This points to index.jsx in /Tasks
+// Pages/Homepage/index.jsx
+import React from "react";
+import Sidebar from "../../Layout/Sidebar";
+import { Outlet } from "react-router-dom";
 
-const Home = () => {
+const MainLayout = () => {
   return (
-    <div className="flex flex-row">
-      <Sidebar />
-      <Tasks />
+    <div className="flex w-full h-screen">
+      {/* Sidebar - 20% */}
+      <div className="w-[20%]">
+        <Sidebar />
+      </div>
+
+      {/* Page content - 80% */}
+      <div className="w-[80%] overflow-hidden">
+        <Outlet />
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default MainLayout;
