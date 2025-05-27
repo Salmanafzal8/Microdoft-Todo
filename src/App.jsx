@@ -1,18 +1,4 @@
-<<<<<<< HEAD
 
-import './App.css'
-import Sidebar from './Layout/Sidebar';
-
-function App() {
-  return (
-    <div>
-  <Sidebar/>
-    </div>
-  );
-}
-
-export default App
-=======
 // App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
@@ -35,4 +21,4 @@ function App() {
 }
 
 export default App;
->>>>>>> fe95e34 (table work)
+

@@ -38,39 +38,11 @@ useEffect(() => {
 
   return (
 
-<<<<<<< HEAD
-  <div className="w-[18%] h-[100vh] bg-[#212121] text-amber-50 flex flex-col justify-between items-start px-2 pt-3 pb-0">
-  <div className="flex flex-col gap-2.5 w-full">
-    <div className="flex gap-2 justify-start items-start">
-      <div className="h-[45px] w-[45px] rounded-full bg-[#00aba9] text-center flex items-center justify-center">
-        <h1 className="text-1xl">HA</h1>
-      </div>
-      <div>
-        <p className="font-medium">hafeez afzal</p>
-        <p className="text-xs flex items-center gap-1">
-          abdulhafeezafzal0@gmail.com
-          <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="px-1 py-0.5 rounded text-xs cursor-pointer"
-          >
-            <IoIosArrowDropdown />
-          </button>
-        </p>
-
-        {showDropdown && (
-          <div className="mt-2 bg-white text-black rounded shadow-md p-2 w-[160px] text-sm">
-            <ul>
-              <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">Profile</li>
-              <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">Settings</li>
-              <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">Logout</li>
-            </ul>
-=======
     <div className=" relative min-w-[20%] min-h-[100vh] bg-[#212121] text-amber-50 flex flex-col justify-between items-start px-2 pt-3 pb-0">
       <div className="flex flex-col gap-2.5 w-full">
         <div className="flex gap-2 justify-start items-start">
           <div className="h-[45px] w-[60px] rounded-full bg-[#00aba9] text-center flex items-center justify-center">
             <h1 className="text-1xl">HA</h1>
->>>>>>> fe95e34 (table work)
           </div>
           <div className="relative w-full">
             <p className="font-medium">hafeez afzal</p>
