@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { MdAddCard } from "react-icons/md";
 import { GrHomeRounded } from "react-icons/gr";
@@ -18,22 +17,20 @@ function Tasks() {
   };
 
   const add = () => {
-    if (inputText) {
-      setData([...Data, { inputText }]);
+    if (inputText.trim()) {
+      setData([...Data, inputText]);
       setinputText("");
     }
   };
 
-    function Completed(index) {
+  function Completed(index) {
     setComplete([...Complete, Data[index]]);
     const del = Data.filter((_, user) => user !== index);
     setData(del);
   }
 
   return (
-    <div className=" h-screen bg-[#1c1c1c] text-[#788cde] p-12  flex flex-col justify-between">
-      
-      
+    <div className="h-screen bg-[#1c1c1c] text-[#788cde] p-12 flex flex-col justify-between">
       <div className="flex justify-between w-full mb-4">
         <div className="flex justify-center items-center gap-4">
           <GrHomeRounded className="text-[25px]" />
@@ -45,34 +42,32 @@ function Tasks() {
         </div>
       </div>
 
-  
-{Data.length > 0 ? (
-  <div className="flex-grow pr-2 overflow-y-auto scrollbar-hide space-y-6">
-    <DisplayTable displayingData={Data} Completed={Completed} />
-    
-    {/* {Complete.length > 0 && (
-  <div>
-    <h2 className="text-white text-xl mb-2">Completed Tasks</h2>
-    <DisplayTable displayingData={Complete} />
-  </div>
-)} */}
-  </div>
-) : (
-  <div className="flex flex-col items-center justify-center pt-12">
-    <img src={capture} height="150" width="150" alt="no tasks" />
-    <p className="text-xs text-center mt-2">
-      Tasks show up here if they are not part <br /> of any list you have created
-    </p>
-  </div>
-)
-        <InputTodo
-          className="placeholder-[#788cde]"
-          inputText={inputText}
-          handleInputChange={handleInputChange}
-          add={add}
-        />
-   
+      {Data.length > 0 ? (
+        <div className="flex-grow pr-2 overflow-y-auto scrollbar-hide space-y-6">
+          <DisplayTable displayingData={Data} Completed={Completed} />
 
+          {Complete.length > 0 && (
+            <div className="mt-6">
+              <h2 className="text-white text-xl mb-2">Completed Tasks</h2>
+              <DisplayTable displayingData={Complete} />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center pt-12">
+          <img src={capture} height="150" width="150" alt="no tasks" />
+          <p className="text-xs text-center mt-2">
+            Tasks show up here if they are not part <br /> of any list you have created
+          </p>
+        </div>
+      )}
+
+      <InputTodo
+        className="placeholder-[#788cde]"
+        inputText={inputText}
+        handleInputChange={handleInputChange}
+        add={add}
+      />
     </div>
   );
 }

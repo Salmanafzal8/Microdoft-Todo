@@ -18,7 +18,9 @@ const MainLayout = () => {
       <div className="w-[80%] overflow-hidden">
         <Outlet />
       </div>
-
+      </div>
+  );
+}
 
 export default MainLayout;
 
