@@ -12,6 +12,7 @@ function Tasks() {
   const [Data, setData] = useState([]);
   const [Complete, setComplete] = useState([]);
 
+
   const handleInputChange = (e) => {
     setinputText(e.target.value);
   };
@@ -78,9 +79,6 @@ function Tasks() {
     </div>
   )}
   </div>
-
-
-
       <InputTodo
         className="placeholder-[#788cde]"
         inputText={inputText}

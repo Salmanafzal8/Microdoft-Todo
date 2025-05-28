@@ -7,31 +7,39 @@ import { LiaCalendarWeekSolid } from "react-icons/lia";
 import { BsCalendarWeek } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { FaRegCalendarAlt } from "react-icons/fa";
 const InputTodo = ({ inputText, handleInputChange, add }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [label, setLabel] = useState(null); // Store only label text
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const disabledropdown = (event) => {
+    const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false);
-        setShowCalendar(false); // dropdown close ho tou calendar bhi close
+        setShowCalendar(false);
       }
     };
     if (showDropdown) {
-      document.addEventListener("mousedown", disabledropdown);
+      document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener("mousedown", disabledropdown);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showDropdown]);
-
+  const formatDate = (date) => {
+    if (!date) return "";
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  };
   return (
-    <div className="bg-[#292929] hover:bg-[#343435] py-1 flex flex-row rounded mt-[80px] relative">
+    <div className="bg-[#292929] hover:bg-[#343435] py-1 flex flex-row rounded mt-[80px] relative items-center">
       <button className="hover:bg-[#343435]">
         {isInputFocused ? (
           <FaRegCircle className="text-[#788cde] text-2xl mx-[12px]" />
@@ -39,7 +47,6 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
           <FaPlus className="text-[#788cde] mx-[10px]" />
         )}
       </button>
-
       <input
         onFocus={() => setIsInputFocused(true)}
         onBlur={() => setIsInputFocused(false)}
@@ -58,6 +65,12 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
           if (e.key === "Enter") add();
         }}
       />
+      {label && (
+        <span className="text-x text-white  flex items-center gap-1 py-1 rounded-full mx-2 whitespace-nowrap">
+          <FaRegCalendarAlt />
+          {label}
+        </span>
+      )}
 
       {inputText !== "" && (
         <div className="relative">
@@ -68,14 +81,16 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
           {showDropdown && (
             <div
               ref={dropdownRef}
-              className="absolute bottom-[50px] right-[-30px] z-50 bg-[#212121] border text-[#bbbaba] rounded min-w-[230px] flex flex-col text-sm overflow-hidden transition-all duration-300 ease-in-out transform origin-top"
+              className="absolute bottom-[50px] right-[-30px] z-50 bg-[#212121] border text-[#bbbaba] rounded min-w-[230px] flex flex-col text-sm overflow-hidden"
             >
               <ul className="w-full">
                 <li
                   className="hover:bg-[#3d3d3d] text-[15px] py-3 px-4 flex items-center gap-4 cursor-pointer"
                   onClick={() => {
-                    setSelectedDate(new Date());
-                    setShowCalendar(true);
+                    setLabel("Today");
+                    setSelectedDate(null);
+                    setShowDropdown(false);
+                    setShowCalendar(false);
                   }}
                 >
                   <IoTodayOutline className="opacity-75 size-[20px]" />
@@ -84,10 +99,10 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
                 <li
                   className="hover:bg-[#3d3d3d] text-[15px] py-3 px-4 flex items-center gap-4 cursor-pointer"
                   onClick={() => {
-                    const tomorrow = new Date();
-                    tomorrow.setDate(tomorrow.getDate() + 1);
-                    setSelectedDate(tomorrow);
-                    setShowCalendar(true);
+                    setLabel("Tomorrow");
+                    setSelectedDate(null);
+                    setShowDropdown(false);
+                    setShowCalendar(false);
                   }}
                 >
                   <HiCalendarDateRange className="opacity-75 size-[20px]" />
@@ -96,14 +111,14 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
                 <li
                   className="hover:bg-[#3d3d3d] text-[15px] py-3 px-4 border-b flex items-center gap-4 cursor-pointer"
                   onClick={() => {
-                    const nextMonth = new Date();
-                    nextMonth.setMonth(nextMonth.getMonth() + 1);
-                    setSelectedDate(nextMonth);
-                    setShowCalendar(true);
+                    setLabel("Next Week");
+                    setSelectedDate(null);
+                    setShowDropdown(false);
+                    setShowCalendar(false);
                   }}
                 >
                   <LiaCalendarWeekSolid className="opacity-75 size-[20px]" />
-                  Next Month
+                  Next Week
                 </li>
                 <li
                   className="hover:bg-[#3d3d3d] text-[15px] py-3 px-4 flex items-center gap-4 cursor-pointer"
@@ -114,11 +129,17 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
                   <BsCalendarWeek className="opacity-75 size-[20px]" />
                   Pick A date
                 </li>
+
                 {showCalendar && (
                   <div className="p-2">
-                    <DatePicker className="bg"
+                    <DatePicker
                       selected={selectedDate}
-                      onChange={(date) => setSelectedDate(date)}
+                      onChange={(date) => {
+                        setSelectedDate(date);
+                        setLabel(formatDate(date));
+                        setShowCalendar(false);
+                        setShowDropdown(false);
+                      }}
                       inline
                     />
                   </div>
