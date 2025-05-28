@@ -1,6 +1,7 @@
 import React from "react";
 import { MdStarBorder } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 function DisplayTable({
   Data,
@@ -34,7 +35,7 @@ function DisplayTable({
                     {user}
                   </div>
                   <button onClick={() => Deletion(index)}>
-                    <MdStarBorder className="text-2xl hover:text-[#788cde]" />
+                    <RiDeleteBin6Line className="text-2xl hover:text-[#788cde]" />
                   </button>
                 </div>
               </td>
@@ -75,7 +76,7 @@ function DisplayTable({
                         {task}
                       </div>
                       <button onClick={() => completeDeletion(index)}>
-                        <MdStarBorder className="text-2xl hover:text-[#788cde]" />
+                        <RiDeleteBin6Line className="text-2xl hover:text-[#788cde]" />
                       </button>
                     </div>
                   </td>
