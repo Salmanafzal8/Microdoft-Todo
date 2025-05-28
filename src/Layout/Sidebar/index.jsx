@@ -1,4 +1,4 @@
-import React, { useState, useRef , useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
@@ -13,31 +13,27 @@ import { MdAddCard } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoSyncSharp } from "react-icons/io5";
+
 const Sidebar = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
-const [showDropdown, setShowDropdown] = useState(false);
-const dropdownRef = useRef(null);
-
-useEffect(() => {
-  const disabledropdown = (event) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
-    ) {
-      setShowDropdown(false);
+  useEffect(() => {
+    const disabledropdown = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    if (showDropdown) {
+      document.addEventListener("mousedown", disabledropdown);
     }
-  };
-  if (showDropdown) {
-    document.addEventListener("mousedown", disabledropdown);
-  }
 
-  return () => {
-    document.removeEventListener("mousedown", disabledropdown);
-  };
-}, [showDropdown]);
+    return () => {
+      document.removeEventListener("mousedown", disabledropdown);
+    };
+  }, [showDropdown]);
 
   return (
-
     <div className=" relative min-w-[20%] min-h-[100vh] bg-[#212121] text-amber-50 flex flex-col justify-between items-start px-2 pt-3 pb-0">
       <div className="flex flex-col gap-2.5 w-full">
         <div className="flex gap-2 justify-start items-start">
@@ -58,7 +54,7 @@ useEffect(() => {
             </p>
             {showDropdown && (
               <div
-              ref={dropdownRef}
+                ref={dropdownRef}
                 className={`absolute top-[50px] right-[10px] z-50 bg-[#212121] border text-[#bbbaba] rounded  min-w-[230px] flex flex-col text-sm overflow-hidden transition-all duration-300 ease-in-out transform origin-top ${
                   showDropdown
                     ? "scale-y-100 opacity-100 max-h-[500px]"
@@ -93,49 +89,49 @@ useEffect(() => {
             <LiaSearchSolid className="text-white text-base" />
           </div>
         </div>
-       <ul className="text-white flex flex-col items-start w-full">
-  <li className="w-full">
-    <Link
-      to="/myday"
-      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
-    >
-      <FiSun className="text-[17px] text-[#e46b67]" /> My Day
-    </Link>
-  </li>
-  <li className="w-full">
-    <Link
-      to="/important"
-      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
-    >
-      <MdStarOutline className="text-[20px] text-[#d39ea8]" /> Important
-    </Link>
-  </li>
-  <li className="w-full">
-    <Link
-      to="/planned"
-      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
-    >
-      <MdInsertChartOutlined className="text-[20px] text-[#8bd3ce]" /> Planned
-    </Link>
-  </li>
-  <li className="w-full">
-    <Link
-      to="/assigned"
-      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
-    >
-      <CiUser className="text-[19px] text-[#6a8b7d]" /> Assigned to me
-    </Link>
-  </li>
-  <li className="w-full">
-    <Link
-      to="/tasks"
-      className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
-    >
-      <GrHomeRounded className="text-[15px] text-[#5a6592]" /> Task
-    </Link>
-  </li>
-</ul>
-
+        <ul className="text-white flex flex-col items-start w-full">
+          <li className="w-full">
+            <Link
+              to="/myday"
+              className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+            >
+              <FiSun className="text-[17px] text-[#e46b67]" /> My Day
+            </Link>
+          </li>
+          <li className="w-full">
+            <Link
+              to="/important"
+              className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+            >
+              <MdStarOutline className="text-[20px] text-[#d39ea8]" /> Important
+            </Link>
+          </li>
+          <li className="w-full">
+            <Link
+              to="/planned"
+              className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+            >
+              <MdInsertChartOutlined className="text-[20px] text-[#8bd3ce]" />{" "}
+              Planned
+            </Link>
+          </li>
+          <li className="w-full">
+            <Link
+              to="/assigned"
+              className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+            >
+              <CiUser className="text-[19px] text-[#6a8b7d]" /> Assigned to me
+            </Link>
+          </li>
+          <li className="w-full">
+            <Link
+              to="/tasks"
+              className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
+            >
+              <GrHomeRounded className="text-[15px] text-[#5a6592]" /> Task
+            </Link>
+          </li>
+        </ul>
       </div>
       <div className="flex gap-2 w-full">
         <button className="h-10 w-[80%] flex justify-start items-center gap-2 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-2">
