@@ -10,24 +10,40 @@ import capture from "../../assets/Capture.PNG";
 function Tasks() {
   const [inputText, setinputText] = useState("");
   const [Data, setData] = useState([]);
-  // const [Complete, setComplete] = useState([]);
+  const [Complete, setComplete] = useState([]);
 
   const handleInputChange = (e) => {
     setinputText(e.target.value);
   };
 
   const add = () => {
-    if (inputText.trim()) {
+    if (inputText) {
       setData([...Data, inputText]);
       setinputText("");
     }
   };
 
-  // function Completed(index) {
-  //   setComplete([...Complete, Data[index]]);
-  //   const del = Data.filter((_, user) => user !== index);
-  //   setData(del);
-  // }
+  function Completed (index) {
+    setComplete([...Complete, Data[index]]);
+    const del = Data.filter((_, user) => user !== index);
+    setData(del);
+  }
+
+    function Deletion(index) {
+    const del = Data.filter((_, user) => user !== index);
+    setData(del);
+  }
+
+  function completeDeletion(index){
+    const del = Complete.filter((_,user)=> user !== index)
+    setComplete(del)
+  }
+
+    function Incompleted(index) {
+    setData([...Data, Complete[index]]);
+    const del = Complete.filter((_, user) => user !== index);
+    setComplete(del);
+  }
 
   return (
     <div className="h-screen bg-[#1c1c1c] text-[#788cde] p-12 flex flex-col justify-between">
@@ -42,9 +58,18 @@ function Tasks() {
         </div>
       </div>
 <div className="flex-grow pr-2 overflow-y-auto scrollbar-hide space-y-6">
-  {Data.length > 0 ? (
-      <DisplayTable displayingData={Data} />
-  ) : (
+  {Data.length > 0 || Complete.length > 0 ? (
+    <DisplayTable 
+      Data={Data} 
+      completedData={Complete} 
+      Completed={Completed} 
+      Deletion={Deletion}
+      completeDeletion={completeDeletion}
+      Incompleted={Incompleted}
+
+    />
+    
+  )  : (
     <div className="flex flex-col items-center justify-center pt-12">
       <img src={capture} height="150" width="150" alt="no tasks" />
       <p className="text-xs text-center mt-2">
@@ -52,7 +77,9 @@ function Tasks() {
       </p>
     </div>
   )}
-</div>
+  </div>
+
+
 
       <InputTodo
         className="placeholder-[#788cde]"

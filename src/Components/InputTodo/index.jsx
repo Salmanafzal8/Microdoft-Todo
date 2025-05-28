@@ -38,7 +38,9 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
       {inputText === "" ? (
         ""
       ) : (
+        <button>
         <MdOutlineCalendarMonth className="text-[#ffffff] text-2xl mx-[10px] my-[10px] z-50" />
+        </button>
       )}
 
     </div>
