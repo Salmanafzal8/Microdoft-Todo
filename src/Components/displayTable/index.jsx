@@ -13,7 +13,7 @@ function DisplayTable({
 }) {
   return (
     <div>
-      <table className="w-full border-separate border-spacing-y-2" border="1">
+      <table className="w-full scroll-auto border-separate border-spacing-y-2" border="1">
         <tbody>
           {Data.map((user, index) => (
             <tr

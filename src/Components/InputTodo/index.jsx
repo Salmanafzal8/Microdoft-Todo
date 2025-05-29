@@ -42,7 +42,7 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
     });
   };
   return (
-    <div className="bg-[#292929] hover:bg-[#343435] py-1 flex flex-row rounded mt-[80px] relative items-center">
+    <div className="bg-[#292929] hover:bg-[#343435] py-1 flex flex-row rounded mt-[10px] relative items-center">
       <button className="hover:bg-[#343435]">
         {isInputFocused ? (
           <FaRegCircle className="text-[#788cde] text-2xl mx-[12px]" />
