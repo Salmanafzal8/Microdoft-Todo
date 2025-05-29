@@ -11,18 +11,21 @@ function Tasks() {
   const [inputText, setinputText] = useState("");
   const [Data, setData] = useState([]);
   const [Complete, setComplete] = useState([]);
+  const [label, setLabel] = useState(null);
 
 
   const handleInputChange = (e) => {
     setinputText(e.target.value);
   };
 
-  const add = () => {
-    if (inputText) {
-      setData([...Data, inputText]);
-      setinputText("");
-    }
-  };
+const add = () => {
+  if (inputText) {
+    const task = `${inputText}  ${label ?? ""}`;
+    setData([...Data, task]);
+    setinputText("");
+    setLabel(null); // ✅ Reset label too
+  }
+};
 
   function Completed (index) {
     setComplete([...Complete, Data[index]]);
@@ -80,10 +83,12 @@ function Tasks() {
   )}
   </div>
       <InputTodo
-        className="placeholder-[#788cde]"
+        className="placeholder-[#788cde] "
         inputText={inputText}
         handleInputChange={handleInputChange}
         add={add}
+          label={label}            // ✅ pass label
+  setLabel={setLabel}
       />
     </div>
   );

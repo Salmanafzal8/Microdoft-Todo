@@ -18,7 +18,7 @@ function DisplayTable({
           {Data.map((user, index) => (
             <tr
               key={index}
-              className="h-[60px] bg-[#292929] hover:bg-[#343435] text-white"
+              className="h-[60px] bg-[#292929] hover:bg-[#343435]  text-white"
             >
               <td className="px-4 py-2">
                 <div className="flex justify-between">
@@ -31,8 +31,9 @@ function DisplayTable({
                         ✓
                       </span>
                     </button>
-                    <div className="w-5 h-5" />
+                    <div className=" w-6 ml-1 " >
                     {user}
+                    </div>
                   </div>
                   <button onClick={() => Deletion(index)}>
                     <RiDeleteBin6Line className="text-2xl hover:text-[#788cde]" />

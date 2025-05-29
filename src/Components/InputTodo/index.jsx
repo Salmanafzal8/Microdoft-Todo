@@ -8,12 +8,15 @@ import { BsCalendarWeek } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
-const InputTodo = ({ inputText, handleInputChange, add }) => {
+
+
+
+const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [label, setLabel] = useState(null); // Store only label text
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -65,7 +68,7 @@ const InputTodo = ({ inputText, handleInputChange, add }) => {
           if (e.key === "Enter") add();
         }}
       />
-      {label && (
+      {label &&  (
         <span className="text-x text-white  flex items-center gap-1 py-1 rounded-full mx-2 whitespace-nowrap">
           <FaRegCalendarAlt />
           {label}
