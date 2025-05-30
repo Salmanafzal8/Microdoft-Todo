@@ -20,10 +20,13 @@ function Tasks() {
 
 const add = () => {
   if (inputText) {
-    const task = `${inputText}  ${label ?? ""}`;
+    const task = {
+      text: inputText,
+      dateLabel: label ?? null
+    };
     setData([...Data, task]);
     setinputText("");
-    setLabel(null); // ✅ Reset label too
+    setLabel(null);
   }
 };
 
@@ -87,7 +90,7 @@ const add = () => {
         inputText={inputText}
         handleInputChange={handleInputChange}
         add={add}
-          label={label}            // ✅ pass label
+          label={label}            
   setLabel={setLabel}
       />
     </div>
