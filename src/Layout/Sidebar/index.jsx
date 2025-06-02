@@ -95,7 +95,7 @@ const Sidebar = () => {
               to="/myday"
               className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
             >
-              <FiSun className="text-[17px] text-[#e46b67]" /> My Day
+              <FiSun className="text-[20px] text-[#e46b67]" />My Day
             </Link>
           </li>
           <li className="w-full">
@@ -103,7 +103,7 @@ const Sidebar = () => {
               to="/important"
               className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
             >
-              <MdStarOutline className="text-[20px] text-[#d39ea8]" /> Important
+              <MdStarOutline className="text-[20px] text-[#d39ea8]" />Important
             </Link>
           </li>
           <li className="w-full">
@@ -120,7 +120,7 @@ const Sidebar = () => {
               to="/assigned"
               className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
             >
-              <CiUser className="text-[19px] text-[#6a8b7d]" /> Assigned to me
+              <CiUser className="text-[20px] text-[#6a8b7d]" />Assigned to me
             </Link>
           </li>
           <li className="w-full">
@@ -128,7 +128,7 @@ const Sidebar = () => {
               to="/tasks"
               className="h-10 w-full flex justify-start items-center gap-4 text-[14px] hover:bg-gray-600 transition duration-150 rounded px-4"
             >
-              <GrHomeRounded className="text-[15px] text-[#5a6592]" /> Task
+              <GrHomeRounded className="text-[20px] text-[#5a6592]" />Tasks
             </Link>
           </li>
         </ul>

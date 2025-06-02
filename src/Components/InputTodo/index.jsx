@@ -9,7 +9,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
+const InputTodo = ({ inputText, handleInputChange, add, Label, setLabel }) => {
   const inputRef = useRef(null); // for wrapper div
   const inputElementRef = useRef(null); // for actual input field
 
@@ -42,7 +42,6 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
       year: "numeric",
     });
   };
-
   return (
     <div
       ref={inputRef}
@@ -64,7 +63,7 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
         name="inputText"
         id="inputText"
         value={inputText}
-        className="py-[14px] outline-none text-[#707aa1] rounded w-full"
+        className="py-[14px] outline-none placeholder-[] text-white rounded w-full"
         placeholder={
           isInputFocused
             ? "Try typing utility 'Pay Utilites bill by Friday 6pm' "
@@ -75,14 +74,13 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
           if (e.key === "Enter") add();
         }}
       />
-
-      {!label && inputText.trim() !== "" && (
+      {!Label && inputText.trim() !== "" && (
         <button onClick={() => setShowDropdown((prev) => !prev)}>
           <MdOutlineCalendarMonth className="text-[#ffffff] text-2xl mx-[10px] my-[10px] z-50" />
         </button>
       )}
 
-      {label && (
+      {Label && (
         <button
           onClick={() => {
             setShowDropdown(true);
@@ -90,7 +88,7 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
           className="text-sm text-white flex items-center gap-1 py-1 px-3 text-[16px] mx-2 whitespace-nowrap "
         >
           <FaRegCalendarAlt />
-          {label}
+          {Label}
         </button>
       )}
 
@@ -150,7 +148,6 @@ const InputTodo = ({ inputText, handleInputChange, add, label, setLabel }) => {
               Pick A date
             </li>
           </ul>
-
           {showCalendar && (
             <div className="p-2">
               <DatePicker

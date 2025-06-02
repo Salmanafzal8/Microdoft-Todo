@@ -6,12 +6,14 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 
 function DisplayTable({
   Data,
-  completedData,
+  CompletedData,
   Completed,
   Deletion,
-  completeDeletion,
+  CompleteDeletion,
   Incompleted ,
 }) {
+
+  
   return (
     <div>
       <table
@@ -54,7 +56,7 @@ function DisplayTable({
           ))}
         </tbody>
       </table>
-      {completedData.length > 0 && (
+      {CompletedData.length > 0 && (
         <>
           <h2 className="text-white ml-1 mt-4 mb-2 text-center mr-[750px] rounded-[5px] flex items-center gap-1 bg-[#343435]">
             <IoIosArrowDown className="ml-1" />
@@ -65,7 +67,7 @@ function DisplayTable({
             border="1"
           >
             <tbody>
-              {completedData.map((task, index) => (
+              {CompletedData.map((task, index) => (
                 <tr
                   key={index}
                   className="h-[60px] bg-[#292929] hover:bg-[#343435] text-white"
@@ -91,7 +93,7 @@ function DisplayTable({
                           )}
                         </div>
                       </div>
-                      <button onClick={() => completeDeletion(index)}>
+                      <button onClick={() => CompleteDeletion(index)}>
                         <RiDeleteBin6Line className="text-2xl hover:text-[#788cde]" />
                       </button>
                     </div>

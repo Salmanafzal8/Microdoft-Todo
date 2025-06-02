@@ -8,50 +8,44 @@ import DisplayTable from "../../Components/displayTable";
 import capture from "../../assets/Capture.PNG";
 
 function Tasks() {
-  const [inputText, setinputText] = useState("");
+  const [InputText, setInputText] = useState("");
   const [Data, setData] = useState([]);
   const [Complete, setComplete] = useState([]);
-  const [label, setLabel] = useState(null);
-
-
+  const [Label, setLabel] = useState(null);
   const handleInputChange = (e) => {
-    setinputText(e.target.value);
+    setInputText(e.target.value);
   };
 
-const add = () => {
-  if (inputText) {
-    const task = {
-      text: inputText,
-      dateLabel: label ?? null
-    };
-    setData([...Data, task]);
-    setinputText("");
-    setLabel(null);
-  }
-};
+  const add = () => {
+    if (InputText) {
+      const task = {
+        text: InputText,
+        dateLabel: Label ?? null
+      };
+      setData([...Data, task]);
+      setInputText("");
+      setLabel(null);
+    }
+  };
 
-  function Completed (index) {
+  function Completed(index) {
     setComplete([...Complete, Data[index]]);
     const del = Data.filter((_, user) => user !== index);
     setData(del);
   }
-
-    function Deletion(index) {
+  function Deletion(index) {
     const del = Data.filter((_, user) => user !== index);
     setData(del);
   }
-
-  function completeDeletion(index){
-    const del = Complete.filter((_,user)=> user !== index)
+  function CompleteDeletion(index) {
+    const del = Complete.filter((_, user) => user !== index)
     setComplete(del)
   }
-
-    function Incompleted(index) {
+  function Incompleted(index) {
     setData([...Data, Complete[index]]);
     const del = Complete.filter((_, user) => user !== index);
     setComplete(del);
   }
-
   return (
     <div className="h-screen bg-[#1c1c1c] text-[#788cde] p-12 flex flex-col justify-between">
       <div className="flex justify-between w-full mb-4">
@@ -64,34 +58,34 @@ const add = () => {
           <PiDotsThreeBold className="font-bold" />
         </div>
       </div>
-<div className="flex-grow pr-2 overflow-y-auto scrollbar-hide space-y-6">
-  {Data.length > 0 || Complete.length > 0 ? (
-    <DisplayTable 
-      Data={Data} 
-      completedData={Complete} 
-      Completed={Completed} 
-      Deletion={Deletion}
-      completeDeletion={completeDeletion}
-      Incompleted={Incompleted}
+      <div className="flex-grow pr-2 overflow-y-auto scrollbar-hide space-y-6">
+        {Data.length > 0 || Complete.length > 0 ? (
+          <DisplayTable
+            Data={Data}
+            CompletedData={Complete}
+            Completed={Completed}
+            Deletion={Deletion}
+            CompleteDeletion={CompleteDeletion}
+            Incompleted={Incompleted}
 
-    />
-    
-  )  : (
-    <div className="flex flex-col items-center justify-center pt-12">
-      <img src={capture} height="150" width="150" alt="no tasks" />
-      <p className="text-xs text-center mt-2">
-        Tasks show up here if they are not part <br /> of any list you have created
-      </p>
-    </div>
-  )}
-  </div>
+          />
+
+        ) : (
+          <div className="flex flex-col items-center justify-center pt-12">
+            <img src={capture} height="150" width="150" alt="no tasks" />
+            <p className="text-xs text-center mt-2">
+              Tasks show up here if they are not part <br /> of any list you have created
+            </p>
+          </div>
+        )}
+      </div>
       <InputTodo
         className="placeholder-[#788cde] "
-        inputText={inputText}
+        inputText={InputText}
         handleInputChange={handleInputChange}
         add={add}
-          label={label}            
-  setLabel={setLabel}
+        Label={Label}
+        setLabel={setLabel}
       />
     </div>
   );

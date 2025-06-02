@@ -1,13 +1,9 @@
-
 // Pages/Homepage/index.jsx
 import React from "react";
 import Sidebar from "../../Layout/Sidebar";
 import { Outlet } from "react-router-dom";
-
-
 const MainLayout = () => {
   return (
-
     <div className="flex w-full h-screen">
       {/* Sidebar - 20% */}
       <div className="w-[20%]">
